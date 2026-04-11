@@ -24,7 +24,11 @@ export default function OnboardingPage() {
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user) setUserId(data.user.id);
+      if (data.user) {
+        setUserId(data.user.id);
+      } else {
+        window.location.href = "/login";
+      }
     });
   }, []);
 

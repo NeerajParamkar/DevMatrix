@@ -11,7 +11,6 @@ import { NextResponse, type NextRequest } from 'next/server';
 export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
-  
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -63,15 +62,13 @@ export async function proxy(request: NextRequest) {
           : NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
+  // Public pages
+  const isLandingPage = path === '/';
+  
   // Protected routes — require login
-  const isProtected = !isAuthPage;
+  const isProtected = !isAuthPage && !isLandingPage;
   if (isProtected && !user) {
     return NextResponse.redirect(new URL('/login', request.url));
-  }
-
-  // Redirect root to dashboard if logged in
-  if (path === '/') {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
   // Admin routes — only allow admin members

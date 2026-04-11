@@ -122,7 +122,11 @@ export default function MessagesPage() {
     async function fetchData() {
       // Get current user ID
       const { data: { user } } = await supabase.auth.getUser();
-      const authId = user?.id || null;
+      if (!user) {
+        window.location.href = "/login";
+        return;
+      }
+      const authId = user.id;
       setCurrentUserId(authId);
 
       // Build project map

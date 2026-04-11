@@ -23,7 +23,10 @@ export default function DeveloperDashboard() {
   async function loadData() {
     setLoading(true);
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) {
+      window.location.href = "/login";
+      return;
+    }
 
     setUserId(user.id);
     const name = user.user_metadata?.full_name ?? user.email ?? "Developer";

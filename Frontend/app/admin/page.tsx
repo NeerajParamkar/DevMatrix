@@ -24,7 +24,10 @@ export default function AdminDashboard() {
   async function loadData() {
     setLoading(true);
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) {
+      window.location.href = "/login";
+      return;
+    }
 
     setUserName(user.user_metadata?.full_name ?? user.email ?? "Admin");
 

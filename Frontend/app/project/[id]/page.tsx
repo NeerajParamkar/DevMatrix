@@ -33,7 +33,11 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user) setUserName(data.user.user_metadata?.full_name ?? data.user.email ?? "User");
+      if (data.user) {
+        setUserName(data.user.user_metadata?.full_name ?? data.user.email ?? "User");
+      } else {
+        window.location.href = "/login";
+      }
     });
     loadData();
 
