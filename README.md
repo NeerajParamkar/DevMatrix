@@ -2,7 +2,7 @@
 
 **DevMatrix** is a production-grade environment diagnostician and team synchronization platform. It ensures that every developer on your team has a perfectly calibrated local environment, eliminating the "it works on my machine" class of bugs.
 
-![Terminal Dashboard](../DEVMATRIX/CLI/assets/terminal_dashboard.png)
+![Terminal Dashboard](/CLI/assets/terminal_dashboard.png)
 *DMX CLI providing real-time diagnostics and AI-powered remediation.*
 
 ---
@@ -30,7 +30,7 @@ DevMatrix is more than just a local tool. Visit [devmatrixcli.vercel.app](https:
 
 | User Profile & Projects | Project Version Timeline |
 | :--- | :--- |
-| ![User Profile](../DEVMATRIX/CLI/assets/web_dashboard_profile.png) | ![Project View](../DEVMATRIX/CLI/assets/web_dashboard_project.png) |
+| ![User Profile](/CLI/assets/web_dashboard_profile.png) | ![Project View](/CLI/assets/web_dashboard_project.png) |
 
 ### Cloud Sync Workflow
 1. **Link Identity**: Run `dmx link <token>` to associate your machine.
